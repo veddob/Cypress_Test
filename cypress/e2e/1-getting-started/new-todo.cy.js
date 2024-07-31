@@ -11,4 +11,11 @@
 // please read our getting started guide:
 // https://on.cypress.io/introduction-to-cypress
 
-describe("example to-do app", () => {});
+describe("example to-do app", () => {
+  beforeEach(() => {
+    cy.visit("https://www.index.hr/");
+  });
+  it("Confirm cookies", () => {
+    cy.get("#didomi-notice-agree-button").click();
+  });
+});
