@@ -45,3 +45,18 @@ describe("test isolation false", { testIsolation: false }, () => {
     cy.get("footer > .list-holder > ul > li > a").eq(6).click();
   });
 });
+
+describe("Login", () => {
+  beforeEach(() => {
+    cy.visit("https://www.index.hr/");
+    cy.get("#didomi-notice-agree-button").click();
+  });
+
+  it("Login button click", () => {
+    cy.get("li .login-btn").click({ force: true });
+  });
+  /* it("Invalid email", () => {
+    cy.get(".login-form").click({ force: true }).type("abc");
+  });
+  zezaju me dopustenja, iskoristit neku drugu stranicu za login */
+});
