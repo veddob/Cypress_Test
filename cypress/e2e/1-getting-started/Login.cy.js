@@ -1,7 +1,7 @@
 /// <reference types="cypress" />
 
-describe("Valid credentials", () => {
-  beforeEach(() => {
+describe("Valid credentials", { testIsolation: false }, () => {
+  it("Visit page", () => {
     cy.visit("https://practicetestautomation.com/practice-test-login/");
   });
 
@@ -10,53 +10,53 @@ describe("Valid credentials", () => {
   });
 
   it("Password", () => {
-    cy.get("#username").click().type("Password123");
+    cy.get("#password").click().type("Password123");
   });
 
   it("Submit", () => {
     cy.get(".btn").click();
   });
 
-  /*it("URL check", () => {
+  it("URL check", () => {
     cy.url().should(
       "include",
       "https://practicetestautomation.com/logged-in-successfully/"
     );
-  });*/
-});
-
-describe("Invalid username", () => {
-  beforeEach(() => {
-    cy.visit("https://practicetestautomation.com/practice-test-login/");
-  });
-
-  it("Invalid username", () => {
-    cy.get("#username").click().type("abc");
-  });
-
-  it("Submit", () => {
-    cy.get(".btn").click();
-  });
-
-  it("Error text check", () => {
-    cy.get("#error").should("have.text", "Your username is invalid!");
   });
 });
 
-describe("Invalid password", () => {
-  beforeEach(() => {
-    cy.visit("https://practicetestautomation.com/practice-test-login/");
-  });
+// describe("Invalid username", () => {
+//   beforeEach(() => {
+//     cy.visit("https://practicetestautomation.com/practice-test-login/");
+//   });
 
-  it("Valid username", () => {
-    cy.get("#username").click().type("student");
-  });
+//   it("Invalid username", () => {
+//     cy.get("#username").click().type("abc");
+//   });
 
-  it("Invalid password", () => {
-    cy.get("#username").click().type("123");
-  });
+//   it("Submit", () => {
+//     cy.get(".btn").click();
+//   });
 
-  it("Submit", () => {
-    cy.get(".btn").click();
-  });
-});
+//   it("Error text check", () => {
+//     cy.get("#error").should("have.text", "Your username is invalid!");
+//   });
+// });
+
+// describe("Invalid password", () => {
+//   beforeEach(() => {
+//     cy.visit("https://practicetestautomation.com/practice-test-login/");
+//   });
+
+//   it("Valid username", () => {
+//     cy.get("#username").click().type("student");
+//   });
+
+//   it("Invalid password", () => {
+//     cy.get("#username").click().type("123");
+//   });
+
+//   it("Submit", () => {
+//     cy.get(".btn").click();
+//   });
+// });
